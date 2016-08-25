@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\newtheoremstyle{break}% name
+  {}%         Space above, empty = `usual value'
+  {}%         Space below
+  {\itshape}% Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {.}%        Punctuation after thm head
+  {\newline}% Space after thm head: \newline = linebreak
+  {}%         Thm head spec
+
+\theoremstyle{break}
+\newtheorem{theorem}{Theorem}
+
+\title{MATH3751 Lecture Notes}
+\author{Ricky Elrod}
+\begin{document}
+\maketitle
+
+\section{24 August 2016}
+
+We start with $\mathbb{Z}^+$ or $\mathbb{N}$\textbackslash$\{0\}$, the set of
+natural numbers (1, 2, 3, \ldots). We have operations e.g. $m + n$, $m \cdot
+n$, along with an order relation, $m < n$.
+
+However, when we try to discuss subtraction and division, we discover that they
+aren't closed operations on this set. For example, $3 - 5 = -2 \not\in
+\mathbb{Z}^+$, and $\frac{1}{2} \not\in \mathbb{Z}^+$.
+
+So we define the integers ($\mathbb{Z}$) which include negative numbers and $0$,
+e.g. ($\ldots$, -3, -2, -1, 0, 1, 2, 3, $\ldots$), and we find that now
+subtraction is always defined, but we still run into problems with division.
+
+So we define $\mathbb{Q}$, the set of all rational numbers; that is $\frac{m}{n}
+\ni n \not= 0$ where $m, n \in \mathbb{Z}$. Now division is also always defined
+and we have facts such as:
+\begin{itemize}
+\item $\frac{m}{n} = \frac{a}{b} \iff m \cdot b = n \cdot a$
+\item $\frac{m}{n} + \frac{a}{b} = \frac{mb}{nb} + \frac{na}{nb} = \frac{mb +
+    na}{nb}$
+\item $\frac{m}{n} \cdot \frac{a}{b} = \frac{ma}{nb}$
+\item $\frac{m}{n} < \frac{a}{b} \iff$ if $\forall n, b > 0,\ m \cdot b < n \cdot a$
+\end{itemize}
+
+However, there are numbers that are not rational.
+
+\begin{theorem}[$\sqrt{2}$ is irrational]
+  We proceed by contradiction. Assume that $\sqrt{2}$ is rational. Then $\exists
+  m, n \in \mathbb{Z} \ni \sqrt{2} = \frac{m}{n}$, where $n \not= 0$. Assume
+  gcd($m$, $n$) = $1$. Then $\sqrt{2} = \frac{m}{n} \implies \sqrt{2} \cdot n =
+  m \implies (\sqrt{2} \cdot n)^2 = m^2 \implies 2n^2 = m^2$. So $m^2$ is even,
+  thus $m$ is even. So $m = 2l$ for some $l \in \mathbb{Z}$. Now $\sqrt{2} =
+  \frac{2l}{n} \implies \sqrt{2n} = 2l \implies 2n^2 = 4l^2 \implies n^2 = 2l^2
+  \implies n^2$ is even $\implies n$ is even. Thus we have a contradiction since
+  we assumed gcd($n$, $m$) = $1$. \qed
+\end{theorem}
+
+\subsection{Properties of $\mathbb{R}$}
+\subsubsection{Additive}
+\begin{itemize}
+\item $\forall a, b \in \mathbb{R}, a + b \in \mathbb{R}$ and $a + b = b + a$
+\item $\forall a, b, c \in \mathbb{R}, (a+b)+c = a+(b+c)$
+\item $\exists! 0 \in \mathbb{R} \ni \forall a \in \mathbb{R} a + 0 = 0 + a = a$
+\item $\forall a \in \mathbb{R}, \exists -a \in \mathbb{R} \ni a + (-a) = 0$
+\end{itemize}
+
+\subsubsection{Multiplicative}
+\begin{itemize}
+\item $\forall a, b \in \mathbb{R}, a \cdot b \in \mathbb{R}$ and $a \cdot b = b \cdot a$
+\item $\forall a, b, c \in \mathbb{R}, (a \cdot b) \cdot c = a \cdot (b \cdot c)$
+\item $\exists! 1 \in \mathbb{R} \ni \forall a \in \mathbb{R} a \cdot 1 = 1 \cdot a = a$
+\item $\forall a \not= 0 \in \mathbb{R}, \exists a^{-1} \in \mathbb{R} \ni a \cdot a^{-1} = 1$
+\end{itemize}
+
+\subsubsection{Additive / Multiplicative}
+\begin{itemize}
+\item $\forall a, b, c \in \mathbb{R}, (a + b)c = a \cdot c + b \cdot c$
+\end{itemize}
+
+\subsubsection{Order Structure ($x < y$, $x \le y$)}
+\begin{itemize}
+\item $\forall a, b \in \mathbb{R}$, we have exactly one of the following:
+  \begin{itemize}
+  \item $a = b$
+  \item $a < b$
+  \item $a > b$
+  \end{itemize}
+\item $\forall a, b, c \in \mathbb{R}, a < b \land b < c \implies a < c$
+\item $\forall a, b, c \in \mathbb{R}, a < b \implies a + c < b + c$
+\item $\forall a, b \in \mathbb{R}, a < b \implies a \cdot c < b \cdot c$, if $c
+  > 0 \in \mathbb{R}$
+\end{itemize}
+
+\subsection{Bounds}
+If $E$ is a subset of $\mathbb{R}$:
+
+\begin{itemize}
+\item $M$ is said to be an \textbf{upper bound} of $E$ if $\forall x \in E, x
+  \le M$
+\item $m$ is said to be a \textbf{lower bound} of $E$ if $\forall x \in E, m \le
+  x$
+\item If $\forall x \in E, \exists M \in E \ni x \le M$, $M$ is said to be a
+  \textbf{max} and written $M = $max($E$).
+\item If $\forall x \in E, \exists m \in E \ni m \le x$, $M$ is said to be a
+  \textbf{min} and written $m = $min($E$).
+\end{itemize}
+
+\subsubsection{Definitions}
+
+\begin{itemize}
+\item A set with an upper bound and a lower bound is said to be
+  \textbf{bounded}.
+
+\item \textbf{Definition (Least Upper Bound/Supremum)}: Given $E$ a subset of
+$\mathbb{R}$ that is bounded above and nonempty, if $M$ is the least of all
+upper bounds, $M$ is the ``least upper bound'' or ``supremum'' and written
+lub($E$) or sup($E$).
+
+\item \textbf{Definition (Greatest Lower Bound/Infimum)}: Given $E$ a subset of
+$\mathbb{R}$ that is bounded below and nonempty, if $m$ is the greatest of all
+lower bounds, $m$ is the ``greatest lower bound'' or ``infimum'' and written
+glb($E$) or inf($E$).
+
+\item \textbf{Definition (Completeness Axiom)}: Every nonempty set of real
+  numbers that is bounded above has a least upper bound.
+\end{itemize}
+
+\end{document}
